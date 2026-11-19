@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Så fungerar Claude Code</title>
+<meta name="description" content="En enkel introduktion till hur Claude Code fungerar – på svenska.">
+<style>
+  :root {
+    --bg: #faf9f5;
+    --surface: #ffffff;
+    --text: #1f1e1d;
+    --muted: #5e5d59;
+    --accent: #c96442;
+    --border: #e8e6dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1f1e1d;
+      --surface: #2a2927;
+      --text: #f0eee6;
+      --muted: #b0aea5;
+      --accent: #e08a6a;
+      --border: #3d3c39;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  header { margin-bottom: 40px; }
+  .tag { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.15; margin: 8px 0 16px; }
+  h2 { font-size: 1.4rem; margin: 48px 0 12px; }
+  p.lead { font-size: 1.15rem; color: var(--muted); margin: 0; }
+  .steps { display: grid; gap: 12px; padding: 0; list-style: none; counter-reset: step; }
+  .steps li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px 16px 60px;
+    position: relative;
+    counter-increment: step;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 18px; top: 16px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    display: grid; place-items: center; font-weight: 700; font-size: 0.9rem;
+  }
+  .steps strong { display: block; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  pre {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 16px; overflow-x: auto; font-size: 0.95rem;
+  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  ul.tips li { margin-bottom: 6px; }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="tag">En kort guide</div>
+    <h1>Så fungerar Claude Code</h1>
+    <p class="lead">Claude Code är en AI-assistent som inte bara svarar på frågor, utan som kan <em>göra saker</em> på din dator: läsa filer, skriva kod, köra kommandon och bygga färdiga projekt – tillsammans med dig.</p>
+  </header>
+
+  <h2>Vad är det?</h2>
+  <p>Vanliga chattbottar ger dig text som du själv får kopiera och använda. Claude Code arbetar i stället direkt i en mapp på din dator. Du beskriver vad du vill ha med vanliga ord, och Claude tar fram en plan, utför stegen och visar vad som hänt. Den här hemsidan är till exempel byggd och publicerad med hjälp av Claude Code.</p>
+
+  <h2>Hur ett uppdrag går till</h2>
+  <ol class="steps">
+    <li><strong>Du beskriver målet</strong>Till exempel: ”Gör en enkel hemsida om hur Claude Code fungerar.”</li>
+    <li><strong>Claude tittar runt</strong>Den läser filerna i mappen och kollar vilka verktyg som finns installerade.</li>
+    <li><strong>Claude gör en plan</strong>Uppgiften delas upp i steg som du kan följa medan arbetet pågår.</li>
+    <li><strong>Claude utför stegen</strong>Den skapar och ändrar filer och kör kommandon. Allt som kan påverka något utanför datorn frågar den om först.</li>
+    <li><strong>Du granskar och justerar</strong>Du säger vad som ska ändras, och Claude fortsätter därifrån.</li>
+  </ol>
+
+  <h2>Vad Claude Code kan göra</h2>
+  <div class="cards">
+    <div class="card"><h3>Läsa och skriva filer</h3><p>Skapa nya dokument, hemsidor och program, eller ändra befintliga.</p></div>
+    <div class="card"><h3>Köra kommandon</h3><p>Installera verktyg, köra tester och starta program i terminalen.</p></div>
+    <div class="card"><h3>Förklara</h3><p>Gå igenom kod eller tekniska begrepp på ett begripligt sätt.</p></div>
+    <div class="card"><h3>Jobba med Git och GitHub</h3><p>Spara versioner av ditt arbete och publicera det på nätet.</p></div>
+  </div>
+
+  <h2>Du har kontrollen</h2>
+  <p>Claude Code ber om lov innan den gör något som är svårt att ångra eller som syns utåt, till exempel att publicera något eller radera filer. Du kan godkänna, neka eller be om ändringar när som helst.</p>
+
+  <h2>Kom igång</h2>
+  <p>Claude Code finns som app för Mac och Windows, i webbläsaren och i terminalen. I terminalen startar du det så här:</p>
+  <pre><code>claude</code></pre>
+  <p>Läs mer i den officiella dokumentationen: <a href="https://docs.claude.com/en/docs/claude-code/overview">docs.claude.com</a>.</p>
+
+  <h2>Tips för bättre resultat</h2>
+  <ul class="tips">
+    <li>Beskriv <strong>vad</strong> du vill uppnå, inte bara hur.</li>
+    <li>Börja litet och bygg vidare steg för steg.</li>
+    <li>Säg till om något blev fel – Claude rättar och lär sig av sammanhanget.</li>
+  </ul>
+
+  <footer>Min första hemsida, publicerad med GitHub Pages. Byggd med hjälp av Claude Code.</footer>
+</main>
+</body>
+</html>
